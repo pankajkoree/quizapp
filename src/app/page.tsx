@@ -9,15 +9,17 @@ export default function Home() {
   const router = useRouter();
 
   const gotoStart = () => {
+    document.cookie = "userType=guest; path=/; max-age=3600";
     router.push("/start");
   };
 
   const gotoLogin = () => {
+    document.cookie = "userType=user; path=/; max-age=3600";
     router.push("/login");
   };
 
   return (
-    <div className=" bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900">
       {/* Centered guest/user choice */}
       <div className="flex flex-col items-center justify-center h-full gap-12 text-center xl:text-2xl dark:text-white relative z-10">
         <div className="flex gap-12">
