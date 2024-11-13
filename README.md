@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Frontend
 
-### ➡️ [_Splashscreen_](https://github.com/pankajkoree/quizapp/blob/main/src/app/splashScreen/page.tsx)
+### ➡️ [_Home_](https://github.com/pankajkoree/quizapp/blob/main/src/app/page.tsx)
 
 ### ➡️ You'll have two options
 
