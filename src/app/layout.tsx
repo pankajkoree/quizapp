@@ -3,6 +3,7 @@ import "./globals.css";
 import { useState, useEffect } from "react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -54,6 +55,7 @@ export default function RootLayout({
             )}
           </button>
           {children}
+          <Toaster position="bottom-left" />
         </BackgroundBeamsWithCollision>
       </body>
     </html>
