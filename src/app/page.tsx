@@ -1,44 +1,62 @@
 "use client";
 
 import Image from "next/image";
-import guest from "../../public/unknown.png";
-import user from "../../public/man.png";
 import { useRouter } from "next/navigation";
-
+import cartoonBackground from "../../public/file.png";
 export default function Home() {
   const router = useRouter();
-
-  const gotoStart = () => {
-    document.cookie = "userType=guest; path=/; max-age=3600";
-    router.push("/start");
-  };
 
   const gotoLogin = () => {
     document.cookie = "userType=user; path=/; max-age=3600";
     router.push("/login");
   };
 
+  const gotoSignup = () => {
+    document.cookie = "userType=user; path=/; max-age=3600";
+    router.push("/signup");
+  };
+
   return (
-    <div className="bg-white dark:bg-gray-900">
-      {/* Centered guest/user choice */}
-      <div className="flex flex-col items-center justify-center h-full gap-12 text-center xl:text-2xl dark:text-white relative z-10">
-        <div className="flex gap-12">
-          <div className="flex flex-col items-center" onClick={gotoStart}>
-            <Image
-              src={guest}
-              alt="guest"
-              className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] xl:w-[250px] xl:h-[250px]"
-            />
-            <p>Guest</p>
-          </div>
-          <div className="flex flex-col items-center" onClick={gotoLogin}>
-            <Image
-              src={user}
-              alt="user"
-              className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] xl:w-[250px] xl:h-[250px]"
-            />
-            <p>User</p>
-          </div>
+    <div className="relative min-h-screen bg-white dark:bg-gray-900">
+      {/* Cartoonish Background */}
+      <Image
+        src={cartoonBackground}
+        alt="Quiz Background"
+        layout="fill"
+        objectFit="cover"
+        className="z-0"
+      />
+
+      {/* Interactive Landing Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-6 xl:top-4">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold text-gray-800 dark:text-white">
+          Welcome to QuizMaster!
+        </h1>
+        <p className="text-lg md:text-xl xl:text-2xl text-gray-600 dark:text-gray-300">
+          Ready to challenge your knowledge? Sign in to get started or create an
+          account to begin your journey!
+        </p>
+
+        {/* Buttons for Login and Signup */}
+        <div className="relative flex xl:top-[600px] gap-8 xl:text-2xl">
+          <button className="p-[3px] relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+            <div
+              className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
+              onClick={gotoSignup}
+            >
+              Sign up
+            </div>
+          </button>
+          <button className="p-[3px] relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+            <div
+              className="px-12 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
+              onClick={gotoLogin}
+            >
+              Login
+            </div>
+          </button>
         </div>
       </div>
     </div>
