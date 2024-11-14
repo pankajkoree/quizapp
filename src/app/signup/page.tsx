@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export default function SignupFormDemo() {
+export default function Signup() {
   const router = useRouter();
   const [user, setUser] = useState({
     username: "",
@@ -104,7 +104,7 @@ export default function SignupFormDemo() {
           >
             <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              Login with GitHub
+              Signup with GitHub
             </span>
             <BottomGradient />
           </button>
@@ -114,7 +114,7 @@ export default function SignupFormDemo() {
           >
             <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              Login with Google
+              Signup with Google
             </span>
             <BottomGradient />
           </button>
