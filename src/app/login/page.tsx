@@ -7,6 +7,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function Login() {
   });
 
   const [loading, setLoading] = useState(false);
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -25,11 +26,11 @@ export default function Login() {
       if (response.status === 200 && response.data.user) {
         login(response.data.user);
         toast.success("Login successful");
-        router.push(`/profile/${response.data.user.id}`);
+        router.push("/start");
       } else {
         toast.error("Failed to retrieve valid user data");
       }
-    } catch (error) {
+    } catch (error: any) {
       toast.error("Invalid credentials", error);
     } finally {
       setLoading(false);
@@ -48,11 +49,29 @@ export default function Login() {
       <form className="my-8" onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input
+            id="email"
+            value={user.email}
+            placeholder="projectmayhem@fc.com"
+            type="email"
+            onChange={(e) => {
+              setUser({ ...user, email: e.target.value });
+            }}
+            required
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input
+            id="password"
+            value={user.password}
+            placeholder="••••••••"
+            type="password"
+            onChange={(e) => {
+              setUser({ ...user, password: e.target.value });
+            }}
+            required
+          />
         </LabelInputContainer>
 
         <button
