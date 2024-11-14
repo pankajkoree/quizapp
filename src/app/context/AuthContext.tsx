@@ -10,7 +10,7 @@ import {
 // Define the shape of the AuthContext
 interface AuthContextType {
   isLoggedIn: boolean;
-  login: (userData: any) => void;
+  login: (userData: object) => void;
   logout: () => void;
 }
 

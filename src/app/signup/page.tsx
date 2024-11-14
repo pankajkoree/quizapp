@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { cn } from "@/lib/utils";
@@ -15,33 +15,18 @@ export default function Signup() {
     email: "",
     password: "",
   });
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      setLoading(true);
       const response = await axios.post("/api/users/signup", user);
       toast.success("Successfully signed up");
       router.push("/login");
+      return response;
     } catch (error) {
       toast.error("Signup failed");
     } finally {
-      setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (
-      user.username.length > 0 &&
-      user.email.length > 0 &&
-      user.password.length > 0
-    ) {
-      setButtonDisabled(false);
-    } else {
-      setButtonDisabled(true);
-    }
-  }, [user]);
 
   const backToLogin = () => {
     router.push("/login");

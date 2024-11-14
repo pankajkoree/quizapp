@@ -17,10 +17,8 @@ export default function Login() {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     try {
       const response = await axios.post("/api/users/login", user);
       if (response.status === 200 && response.data.user) {
@@ -32,8 +30,6 @@ export default function Login() {
       }
     } catch (error: any) {
       toast.error("Invalid credentials", error);
-    } finally {
-      setLoading(false);
     }
   };
   return (
