@@ -4,11 +4,36 @@ import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 
-export default function SignupFormDemo() {
+export default function Login() {
+  const router = useRouter();
+  const { login } = useAuth();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    setLoading(true);
+    try {
+      const response = await axios.post("/api/users/login", user);
+      if (response.status === 200 && response.data.user) {
+        login(response.data.user);
+        toast.success("Login successful");
+        router.push(`/profile/${response.data.user.id}`);
+      } else {
+        toast.error("Failed to retrieve valid user data");
+      }
+    } catch (error) {
+      toast.error("Invalid credentials", error);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">

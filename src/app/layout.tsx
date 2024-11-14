@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "../../src/app/context/AuthContext";
 
 export default function RootLayout({
   children,
@@ -43,20 +44,22 @@ export default function RootLayout({
         <title>Quiz App</title>
       </head>
       <body>
-        <BackgroundBeamsWithCollision>
-          <button
-            onClick={toggleTheme}
-            className="absolute top-4 right-4 p-2 bg-white dark:bg-gray-800 rounded-full shadow-md focus:outline-none z-10"
-          >
-            {isDarkMode ? (
-              <SunIcon className="h-6 w-6 text-yellow-500" />
-            ) : (
-              <MoonIcon className="h-6 w-6 text-gray-800" />
-            )}
-          </button>
-          {children}
-          <Toaster position="bottom-left" />
-        </BackgroundBeamsWithCollision>
+        <AuthProvider>
+          <BackgroundBeamsWithCollision>
+            <button
+              onClick={toggleTheme}
+              className="absolute top-4 right-4 p-2 bg-white dark:bg-gray-800 rounded-full shadow-md focus:outline-none z-10"
+            >
+              {isDarkMode ? (
+                <SunIcon className="h-6 w-6 text-yellow-500" />
+              ) : (
+                <MoonIcon className="h-6 w-6 text-gray-800" />
+              )}
+            </button>
+            {children}
+            <Toaster position="bottom-left" />
+          </BackgroundBeamsWithCollision>
+        </AuthProvider>
       </body>
     </html>
   );
