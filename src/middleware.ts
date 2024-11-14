@@ -2,29 +2,26 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Define the middleware function
 export const middleware = (request: NextRequest) => {
-  // Access cookies from the request
+  // Access the token from cookies
   const token = request.cookies.get("token");
 
   // Parse the URL of the request to get the pathname
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // If the path is "/start", check if the user is authenticated (has a token)
+  // Protect the "/start" route
   if (path === "/start") {
-    // If there's a valid token, allow the request to continue
-    if (token) {
-      return NextResponse.next();
-    } else {
-      // Redirect to login if no valid token
+    // If there's no valid token, redirect to login
+    if (!token) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 
-  // For other paths, proceed with the request
+  // Allow other routes or requests to proceed
   return NextResponse.next();
 };
 
-// Specify the matcher for which routes the middleware should run on
+// Specify the matcher to only apply this middleware to the "/start" page
 export const config = {
-  matcher: ["/", "/start"], // Apply this middleware to the root and "/start" paths
+  matcher: ["/start"], // Apply this middleware only to the "/start" path
 };
