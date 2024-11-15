@@ -33,18 +33,23 @@ export default function Login() {
     }
   };
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+    <div
+      className="relative flex flex-col xl:top-[21.75%] xl:h-[56.5%] max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input 
+    bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white dark:bg-gradient-to-r dark:from-black dark:via-black dark:to-black dark:text-white"
+    >
+      <h2 className="font-bold xl:text-3xl text-white dark:text-neutral-200">
         Welcome to QuizApp
       </h2>
-      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+      <p className="text-white xl:text-xl max-w-sm mt-2 dark:text-neutral-300">
         Welcome to QuizApp! Log in to access exciting quizzes and track your
         progress.
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
+          <Label htmlFor="email" className="text-white text-xl">
+            Email Address
+          </Label>
           <Input
             id="email"
             value={user.email}
@@ -57,7 +62,9 @@ export default function Login() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className="text-white text-xl">
+            Password
+          </Label>
           <Input
             id="password"
             value={user.password}
@@ -71,7 +78,7 @@ export default function Login() {
         </LabelInputContainer>
 
         <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] text-xl"
           type="submit"
         >
           Login &rarr;
