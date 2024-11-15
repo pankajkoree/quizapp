@@ -251,7 +251,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
             opacity: 0,
           }}
           transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
-          className="absolute h-2 w-2 rounded-full bg-gradient-to-b from-pink-300 to-red-600"
+          className="absolute h-2 w-2 rounded-full bg-gradient-to-b from-lime-500 to-green-600"
         />
       ))}
     </div>
