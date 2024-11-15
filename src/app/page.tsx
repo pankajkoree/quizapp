@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white dark:bg-gray-900">
+    <div className="relative min-h-screen dark:bg-gray-900">
       {/* Cartoonish Background */}
       <Image
         src={cartoonBackground}
@@ -39,19 +39,19 @@ export default function Home() {
 
         {/* Buttons for Login and Signup */}
         <div className="relative flex xl:top-[600px] gap-8 xl:text-2xl">
-          <button className="p-[3px] relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+          <button className="p-[3px] relative hover:scale-105">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500  to-purple-500 rounded-md" />
             <div
-              className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
+              className="px-12 py-2 border-2  rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
               onClick={gotoSignup}
             >
               Sign up
             </div>
           </button>
-          <button className="p-[3px] relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+          <button className="p-[3px] relative hover:scale-105">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-md" />
             <div
-              className="px-12 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
+              className="px-12 py-2 border-2  rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
               onClick={gotoLogin}
             >
               Login
