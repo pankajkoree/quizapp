@@ -32,18 +32,23 @@ export default function Signup() {
     router.push("/login");
   };
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+    <div
+      className="relative flex flex-col xl:top-[13.75%] xl:h-[72.5%] max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input 
+    bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white dark:bg-gradient-to-r dark:from-black dark:via-black dark:to-black dark:text-white"
+    >
+      <h2 className="font-bold text-xl dark:text-neutral-200">
         Welcome to QuizApp
       </h2>
-      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+      <p className="text-sm max-w-sm mt-2 text-white dark:text-neutral-300">
         Welcome to QuizApp! Sign up to access exciting quizzes and track your
         progress.
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="username">Username</Label>
+          <Label htmlFor="username" className="text-white">
+            Username
+          </Label>
           <Input
             id="username"
             value={user.username}
@@ -54,7 +59,9 @@ export default function Signup() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email" className="text-white">
+            Email
+          </Label>
           <Input
             id="email"
             value={user.email}
@@ -65,7 +72,9 @@ export default function Signup() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className="text-white">
+            Password
+          </Label>
           <Input
             id="password"
             value={user.password}
