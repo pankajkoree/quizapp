@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../public/logo-2.png";
+import logo from "../../../public/logo.png";
 import rightArrow from "../../../public/right-arrow.png";
 import Footer from "../Footer";
 import { useRouter } from "next/navigation";
