@@ -12,7 +12,6 @@ const QuizPage = () => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer <= 0) {
-          console.log("Timer has reached 0!");
           clearInterval(interval);
           return 0;
         }
