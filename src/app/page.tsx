@@ -2,12 +2,21 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import cartoonBackground from "../../public/file.png";
+import colorBG from "../../public/image.png";
 import logo from "../../public/logo.png";
 import Footer from "./Footer";
 
 export default function Home() {
   const router = useRouter();
+  const [theme, setTheme] = useState<string>("default"); // State to store the theme
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "default";
+    setTheme(savedTheme); // Set the theme after fetching it from localStorage
+    console.log("Current Theme:", savedTheme);
+  }, []); // Empty dependency ensures this runs only once after the component mounts
 
   const gotoLogin = () => {
     document.cookie = "userType=user; path=/; max-age=3600";
@@ -20,7 +29,9 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen xl:w-[70%] xl:left-[15%] xl:top-8 dark:bg-gray-900">
+    <div
+      className={`relative min-h-screen xl:w-[70%] xl:left-[15%] xl:top-8 dark:bg-gray-900`}
+    >
       {/* Cartoonish Background */}
       <div>
         <Image src={logo} alt="logo" className="z-0 w-[80px] h-[80px]" />
@@ -37,19 +48,27 @@ export default function Home() {
         </p>
 
         <div>
-          <Image
-            src={cartoonBackground}
-            alt="Quiz Background"
-            className="z-0 xl:w-[900px] xl:h-[360px]"
-          />
+          {theme == "light" ? (
+            <Image
+              src={colorBG}
+              alt="colorBG"
+              className="z-0 xl:w-[900px] xl:h-[360px]"
+            />
+          ) : (
+            <Image
+              src={cartoonBackground}
+              alt="Quiz Background"
+              className="z-0 xl:w-[900px] xl:h-[360px]"
+            />
+          )}
         </div>
 
         {/* Buttons for Login and Signup */}
         <div className="relative flex xl:gap-12 xl:text-2xl">
           <button className="p-[3px] relative hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500  to-purple-500 rounded-md" />
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-md" />
             <div
-              className="px-12 py-2 border-2  rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
+              className="px-12 py-2 border-2 rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent"
               onClick={gotoSignup}
             >
               Sign up
@@ -58,7 +77,7 @@ export default function Home() {
           <button className="p-[3px] relative hover:scale-105">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-md" />
             <div
-              className="px-12 py-2 border-2  rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent"
+              className="px-12 py-2 border-2 rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent"
               onClick={gotoLogin}
             >
               Login
