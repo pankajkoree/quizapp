@@ -52,6 +52,7 @@ const QuizPageContent = () => {
     keepPreviousData: true,
   });
 
+  console.log(data);
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
@@ -127,6 +128,7 @@ const QuizPageContent = () => {
           alt="nextPage"
           className="xl:w-[100px] hover:cursor-pointer"
           onClick={() => {
+            // keeping the previous Page data , changing the page no
             if (!isPreviousData && data) {
               setPage((prev) => prev + 1);
             }
