@@ -1,13 +1,56 @@
 "use client";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Image from "next/image";
 import logo from "../../../public/file.png";
 import nextPage from "../../../public/next.png";
 import Footer from "../Footer";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
 
-const QuizPage = () => {
+// Create a QueryClient instance
+const queryClient = new QueryClient();
+
+const getMCQDataByPage = async (page: number = 0): Promise<any> => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/mcq/getMCQ?page=${page}&limit=1`
+    );
+
+    if (!response.ok) {
+      toast.error("Failed to fetch...");
+      return false;
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.error(error.message);
+    } else {
+      toast.error("An unknown error occurred.");
+    }
+    return false;
+  }
+};
+
+type MCQData = {
+  id: number;
+  Question: string;
+  options: string[];
+  answer: string;
+};
+
+const QuizPageContent = () => {
   const [timer, setTimer] = useState(30);
+  const [page, setPage] = useState(0);
+
+  const { data, isPreviousData } = useQuery<MCQData[], Error>({
+    queryKey: ["getMCQ", page],
+    queryFn: () => getMCQDataByPage(page),
+    keepPreviousData: true,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,7 +67,6 @@ const QuizPage = () => {
   }, []);
 
   return (
-    // main div
     <div className="dark:text-white relative flex flex-col w-full">
       {/* logo and question number */}
       <div className="relative xl:w-[70%] xl:h-[120px] xl:left-[15%] flex top-4">
@@ -37,7 +79,6 @@ const QuizPage = () => {
           </h1>
         </div>
       </div>
-      {/* end of logo and question div */}
 
       {/* question div */}
       <div className="relative flex items-center xl:w-[70%] xl:left-[15%] xl:h-[120px] rounded-lg xl:top-4 bg-gray-800 dark:bg-white">
@@ -45,7 +86,7 @@ const QuizPage = () => {
           Inside which HTML element do we put the JavaScript?
         </h1>
       </div>
-      {/* end of question div */}
+
       {/* timer div */}
       <div className="relative flex xl:w-[70%] xl:left-[15%] xl:top-8">
         <div className="xl:w-full relative flex justify-end items-center">
@@ -54,7 +95,6 @@ const QuizPage = () => {
           </h1>
         </div>
       </div>
-      {/* end of timer div */}
 
       {/* options div */}
       <div className="relative flex flex-col gap-6 xl:w-[70%] xl:left-[15%] xl:h-[45%] bg-gray-800 rounded-lg dark:bg-white xl:top-12">
@@ -79,7 +119,6 @@ const QuizPage = () => {
           </h1>
         </div>
       </div>
-      {/* end options div */}
 
       {/* next question Div */}
       <div className="relative flex top-16 justify-center">
@@ -87,17 +126,26 @@ const QuizPage = () => {
           src={nextPage}
           alt="nextPage"
           className="xl:w-[100px] hover:cursor-pointer"
+          onClick={() => {
+            if (!isPreviousData && data) {
+              setPage((prev) => prev + 1);
+            }
+          }}
         />
       </div>
-      {/* end of next question Div */}
 
       {/* footer */}
       <div className="relative flex justify-center xl:top-[14%]">
         <Footer />
       </div>
-      {/* end of footer */}
     </div>
   );
 };
+
+const QuizPage = () => (
+  <QueryClientProvider client={queryClient}>
+    <QuizPageContent />
+  </QueryClientProvider>
+);
 
 export default QuizPage;
