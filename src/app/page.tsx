@@ -10,13 +10,13 @@ import Footer from "./Footer";
 
 export default function Home() {
   const router = useRouter();
-  const [theme, setTheme] = useState<string>("default"); // State to store the theme
+  const [theme, setTheme] = useState<string>("default");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "default";
-    setTheme(savedTheme); // Set the theme after fetching it from localStorage
+    setTheme(savedTheme);
     console.log("Current Theme:", savedTheme);
-  }, []); // Empty dependency ensures this runs only once after the component mounts
+  }, []);
 
   const gotoLogin = () => {
     document.cookie = "userType=user; path=/; max-age=3600";
