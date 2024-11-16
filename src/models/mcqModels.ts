@@ -7,6 +7,6 @@ const mcqSchema = new mongoose.Schema({
   answer: String,
 });
 
-const Mcq = mongoose.models.mcqSchema || mongoose.model("mcqSchema", mcqSchema);
+const Mcq = mongoose.models.mcq || mongoose.model("mcq", mcqSchema);
 
 export default Mcq;
