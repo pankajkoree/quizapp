@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import logo from "../../../public/file.png";
+import nextPage from "../../../public/next.png";
 import Footer from "../Footer";
 import { useEffect, useState } from "react";
 
@@ -80,8 +81,18 @@ const QuizPage = () => {
       </div>
       {/* end options div */}
 
+      {/* next question Div */}
+      <div className="relative flex top-16 justify-center">
+        <Image
+          src={nextPage}
+          alt="nextPage"
+          className="xl:w-[100px] hover:cursor-pointer"
+        />
+      </div>
+      {/* end of next question Div */}
+
       {/* footer */}
-      <div className="relative flex justify-center xl:top-[18%]">
+      <div className="relative flex justify-center xl:top-[14%]">
         <Footer />
       </div>
       {/* end of footer */}
