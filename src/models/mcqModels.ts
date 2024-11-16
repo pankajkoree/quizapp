@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// schema for mcq
 const mcqSchema = new mongoose.Schema({
   id: String,
   Questions: String,
