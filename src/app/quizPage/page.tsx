@@ -76,7 +76,7 @@ const QuizPage = () => {
         </div>
         <div className="xl:w-[50%] relative flex justify-end items-center">
           <h1 className="xl:text-3xl relative flex bg-orange-600 p-4 rounded-lg">
-            01/25
+            {page + 1}/25
           </h1>
         </div>
       </div>
