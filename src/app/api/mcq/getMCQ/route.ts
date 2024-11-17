@@ -33,7 +33,6 @@ export const GET = async (request: Request): Promise<NextResponse> => {
       );
     }
 
-    console.log(mcqData);
     return NextResponse.json({
       results: mcqData,
       total: totalProducts,
