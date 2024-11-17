@@ -10,8 +10,7 @@ export const GET = async (request: Request): Promise<NextResponse> => {
     const url = new URL(request.url);
     const searchParams = url.searchParams;
 
-    // Extract and validate query parameters
-    const page = parseInt(searchParams.get("page") || "0", 10);
+    const page = parseInt(searchParams.get("page") || "0");
 
     if (page < 0) {
       return NextResponse.json(
@@ -20,9 +19,7 @@ export const GET = async (request: Request): Promise<NextResponse> => {
       );
     }
 
-    console.log("Fetching MCQ...");
-
-    const limit = 1; // We want only one data per page
+    const limit = 1;
     const skip = page * limit;
 
     // Fetch one MCQ with pagination
@@ -36,7 +33,7 @@ export const GET = async (request: Request): Promise<NextResponse> => {
       );
     }
 
-    // Return the single MCQ data for the requested page
+    console.log(mcqData);
     return NextResponse.json({
       results: mcqData,
       total: totalProducts,

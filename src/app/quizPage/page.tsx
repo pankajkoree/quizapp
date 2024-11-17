@@ -46,13 +46,14 @@ const QuizPageContent = () => {
   const [timer, setTimer] = useState(30);
   const [page, setPage] = useState(0);
 
-  const { data, isPreviousData } = useQuery<MCQData[], Error>({
+  console.log(page);
+  const query = useQuery<MCQData[], Error>({
     queryKey: ["getMCQ", page],
     queryFn: () => getMCQDataByPage(page),
-    keepPreviousData: true,
   });
 
-  console.log(data);
+  console.log(query);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
@@ -127,12 +128,7 @@ const QuizPageContent = () => {
           src={nextPage}
           alt="nextPage"
           className="xl:w-[100px] hover:cursor-pointer"
-          onClick={() => {
-            // keeping the previous Page data , changing the page no
-            if (!isPreviousData && data) {
-              setPage((prev) => prev + 1);
-            }
-          }}
+          onClick={() => setPage((page) => page + 1)}
         />
       </div>
 
