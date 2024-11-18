@@ -57,7 +57,6 @@ const QuizPage = () => {
       setTimer((prevTimer) => {
         if (prevTimer <= 0) {
           clearInterval(interval);
-          transferPage();
           return 0;
         }
         return prevTimer - 1;
@@ -65,7 +64,14 @@ const QuizPage = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [page]);
+  }, []);
+
+  useEffect(() => {
+    if (timer === 0) {
+      toast.success("timeout...");
+      transferPage();
+    }
+  });
   let mcq = [];
 
   if (data) {
