@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/file.png";
 import rightArrow from "../../../public/right-arrow.png";
 import Footer from "../Footer";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,7 @@ const Start: React.FC = () => {
   return (
     <div className="relative flex-col w-full">
       <div className="relative flex justify-center xl:top-4">
-        <Image src={logo} alt="Logo" className="xl:w-[400px]" />
+        <Image src={logo} alt="Logo" className="xl:w-[700px]" />
       </div>
 
       <div className="relative flex justify-center xl:top-24">
