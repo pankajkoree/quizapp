@@ -22,8 +22,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### ➡️ You'll have two options
 
-- Guest - will direct you to the quiz start screen, result won't be saved
-- User - will direct you to the login page, which will save your results
+- Login - one when user is already signed up.
+- Sign up - one when user visits the site for the first time and haven't made the account yet.
 
 ## Backend
 
