@@ -3,9 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import cartoonBackground from "../../public/file.png";
-import colorBG from "../../public/image.png";
-import logo from "../../public/logo.png";
+import logo from "../../public/file.png";
 import Footer from "./Footer";
 
 export default function Home() {
@@ -48,19 +46,11 @@ export default function Home() {
         </p>
 
         <div>
-          {theme == "light" ? (
-            <Image
-              src={colorBG}
-              alt="colorBG"
-              className="z-0 xl:w-[900px] xl:h-[360px]"
-            />
-          ) : (
-            <Image
-              src={cartoonBackground}
-              alt="Quiz Background"
-              className="z-0 xl:w-[900px] xl:h-[360px]"
-            />
-          )}
+          <Image
+            src={logo}
+            alt="Quiz Background"
+            className="z-0 xl:w-[900px] xl:h-[360px]"
+          />
         </div>
 
         {/* Buttons for Login and Signup */}
