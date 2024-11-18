@@ -36,8 +36,8 @@ const QuizPage = () => {
   const [data, setData] = useState<any>(null);
 
   const transferPage = (): void => {
-    setPage((prevPage) => prevPage + 1); // Increment page
-    setTimer(30); // Reset timer to 30
+    setPage((prevPage) => prevPage + 1);
+    setTimer(30);
   };
 
   // Fetch data when `page` changes
@@ -56,17 +56,16 @@ const QuizPage = () => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer <= 0) {
-          clearInterval(interval); // Stop the interval
-          transferPage(); // Call transferPage once
-          return 0; // Ensure timer stays at 0
+          clearInterval(interval);
+          transferPage();
+          return 0;
         }
-        return prevTimer - 1; // Decrement timer
+        return prevTimer - 1;
       });
     }, 1000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [page]); // Dependency on `page` to avoid duplicate increments
-
+    return () => clearInterval(interval);
+  }, [page]);
   let mcq = [];
 
   if (data) {
