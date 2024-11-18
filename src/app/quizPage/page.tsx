@@ -83,7 +83,7 @@ const QuizPage = () => {
       {/* Logo and question number */}
       <div className="relative xl:w-[70%] xl:h-[120px] xl:left-[15%] flex top-4">
         <div className="xl:w-[50%] relative flex items-center">
-          <Image src={logo} alt="logo" className="xl:w-[300px] xl:h-[100px]" />
+          <Image src={logo} alt="logo" className="xl:w-[300px] xl:h-[80px]" priority />
         </div>
         <div className="xl:w-[50%] relative flex justify-end items-center">
           <h1 className="xl:text-3xl relative flex bg-orange-600 p-4 rounded-lg">
