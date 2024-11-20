@@ -78,9 +78,6 @@ const QuizPage = () => {
     mcq = data.results[0];
   }
 
-  const validateAnswer = (option) => {
-    console.log(option);
-  };
 
   return (
     <div className="dark:text-white relative flex flex-col w-full">
