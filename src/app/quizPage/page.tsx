@@ -90,6 +90,7 @@ const QuizPage = () => {
     }
   };
 
+  // function for displaying score
   const showScore = () => {
     console.log(score);
   };
