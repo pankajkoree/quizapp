@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import logo from "../../../public/file.png";
 import nextPage from "../../../public/next.png";
 import Footer from "../Footer";
+import OptionButton from "./button";
 
 const getMCQDataByPage = async (page: number = 0): Promise<any> => {
   try {
@@ -78,7 +79,6 @@ const QuizPage = () => {
     mcq = data.results[0];
   }
 
-
   return (
     <div className="dark:text-white relative flex flex-col w-full">
       {/* Logo and question number */}
@@ -122,9 +122,9 @@ const QuizPage = () => {
               key={index}
               className="relative bg-white dark:bg-gray-800 xl:w-[96%] xl:left-[2%] xl:h-[80px] xl:top-4 rounded-lg"
             >
-              <h1 className="relative xl:text-3xl flex items-center h-full p-4">
-                {option}
-              </h1>
+              <OptionButton
+                value={option}
+              />
             </div>
           ))}
         </div>
