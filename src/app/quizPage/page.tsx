@@ -7,6 +7,7 @@ import logo from "../../../public/file.png";
 import nextPage from "../../../public/next.png";
 import Footer from "../Footer";
 import OptionButton from "./button";
+import { verify } from "crypto";
 
 const getMCQDataByPage = async (page: number = 0): Promise<any> => {
   try {
@@ -79,6 +80,20 @@ const QuizPage = () => {
     mcq = data.results[0];
   }
 
+  const [score, setScore] = useState<number>(0);
+
+  const verifyOptions = (option: string): void => {
+    const answer = data?.results?.[0]?.answer;
+
+    if (option === answer) {
+      setScore((prevScore) => prevScore + 1);
+    }
+  };
+
+  const showScore = () => {
+    console.log(score);
+  };
+
   return (
     <div className="dark:text-white relative flex flex-col w-full">
       {/* Logo and question number */}
@@ -121,10 +136,9 @@ const QuizPage = () => {
             <div
               key={index}
               className="relative bg-white dark:bg-gray-800 xl:w-[96%] xl:left-[2%] xl:h-[80px] xl:top-4 rounded-lg"
+              onClick={() => verifyOptions(option)}
             >
-              <OptionButton
-                value={option}
-              />
+              <OptionButton value={option} />
             </div>
           ))}
         </div>
