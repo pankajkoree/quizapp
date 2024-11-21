@@ -7,6 +7,7 @@ import logo from "../../../public/file.png";
 import nextPage from "../../../public/next.png";
 import Footer from "../Footer";
 import OptionButton from "./button";
+import { useRouter } from "next/navigation";
 
 const getMCQDataByPage = async (page: number = 0): Promise<any> => {
   try {
@@ -35,14 +36,23 @@ const QuizPage = () => {
   const [timer, setTimer] = useState(30);
   const [page, setPage] = useState(0);
   const [data, setData] = useState<any>(null);
+  const router = useRouter();
 
   const transferPage = (): void => {
+    if (page === 24) {
+      router.push("/scorePage");
+      return;
+    }
     setPage((prevPage) => prevPage + 1);
     setTimer(30);
   };
 
   // Fetch data when `page` changes
   useEffect(() => {
+    if (page === 25) {
+      return; // Prevent API call if on the last page
+    }
+
     const fetchData = async () => {
       const response = await getMCQDataByPage(page);
       if (response) {
@@ -69,7 +79,7 @@ const QuizPage = () => {
 
   useEffect(() => {
     if (timer === 0) {
-      toast.success("timeout...");
+      toast.success("Timeout...");
       transferPage();
     }
   });
