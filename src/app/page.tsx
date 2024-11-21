@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "default";
     setTheme(savedTheme);
-    console.log("Current Theme:", savedTheme);
   }, []);
 
   const gotoLogin = () => {

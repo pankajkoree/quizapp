@@ -7,7 +7,6 @@ import logo from "../../../public/file.png";
 import nextPage from "../../../public/next.png";
 import Footer from "../Footer";
 import OptionButton from "./button";
-import { verify } from "crypto";
 
 const getMCQDataByPage = async (page: number = 0): Promise<any> => {
   try {
