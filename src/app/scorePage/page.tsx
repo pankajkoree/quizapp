@@ -1,9 +1,12 @@
-import React from "react";
+import Image from "next/image";
+import logo from "../../../public/file.png";
 
 const scorePage = () => {
   return (
     <div>
-      <h1>score page</h1>
+      <div>
+        <Image src={logo} alt="logo" className="xl:w-[200px]" />
+      </div>
     </div>
   );
 };
