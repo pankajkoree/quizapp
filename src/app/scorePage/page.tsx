@@ -5,7 +5,7 @@ import Footer from "../Footer";
 
 const scorePage = () => {
   return (
-    <div className="">
+    <div className="flex flex-col items-center w-full min-h-screen">
       {/* div for the logo */}
       <div>
         <Image src={logo} alt="logo" className="xl:w-[200px]" />
@@ -20,7 +20,9 @@ const scorePage = () => {
 
       {/* retry button */}
       <div>
-        <button className="text-white">Retry</button>
+        <button className="text-white bg-blue-500 px-4 py-2 rounded mt-4">
+          Retry
+        </button>
       </div>
       {/* end of retry button */}
 
