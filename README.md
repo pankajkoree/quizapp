@@ -26,6 +26,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Sign up - one when user visits the site for the first time and haven't made the account yet.
 
 ## Backend
+### for users authentication api
+-> /api/users
 
 ## Deploy on Vercel
 
