@@ -5,7 +5,7 @@ import Footer from "../Footer";
 
 const scorePage = () => {
   return (
-    <div className="flex flex-col items-center w-full min-h-screen">
+    <div className="flex flex-col items-center w-full">
       {/* div for the logo */}
       <div>
         <Image src={logo} alt="logo" className="xl:w-[200px]" />
