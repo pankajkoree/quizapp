@@ -32,7 +32,7 @@ const scorePage = () => {
 
       {/* retry button */}
       <div className="relative flex xl:top-40">
-        <button className="text-white bg-blue-500 px-4 py-2 rounded mt-4">
+        <button className="text-white bg-blue-500 px-8 py-2 rounded mt-4 xl:text-3xl">
           Retry
         </button>
       </div>
