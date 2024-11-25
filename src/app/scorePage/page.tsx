@@ -31,7 +31,7 @@ const scorePage = () => {
       {/* end obtained score */}
 
       {/* retry button */}
-      <div className="relative flex xl:top-40">
+      <div className="relative flex xl:top-64">
         <button className="text-white bg-blue-500 px-8 py-2 rounded mt-4 xl:text-3xl">
           Retry
         </button>
@@ -39,7 +39,9 @@ const scorePage = () => {
       {/* end of retry button */}
 
       {/* footer */}
-      <Footer />
+      <div className="relative flex xl:top-[58%]">
+        <Footer />
+      </div>
       {/* footer */}
     </div>
   );
