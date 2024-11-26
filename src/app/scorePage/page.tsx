@@ -25,14 +25,14 @@ const scorePage = () => {
       {/* end div for the score bar */}
 
       {/* obtained score */}
-      <div className="relative flex xl:top-36 text-gray-600 dark:text-white xl:text-3xl">
+      <div className="relative flex xl:top-40 text-gray-600 dark:text-white xl:text-3xl">
         22/25
       </div>
       {/* end obtained score */}
 
       {/* retry button */}
       <div className="relative flex xl:top-64">
-        <button className="text-white bg-blue-500 px-8 py-2 rounded mt-4 xl:text-3xl">
+        <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg xl:text-3xl px-8 py-4 text-center mb-2">
           Retry
         </button>
       </div>
