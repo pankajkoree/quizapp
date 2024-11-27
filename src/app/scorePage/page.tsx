@@ -48,16 +48,16 @@ const scorePage = () => {
           <h2 className="xl:text-2xl">Share your score</h2>
         </div>
         <div className="relative flex xl:gap-4">
-          <Image src={ld} alt="ld" className="xl:w-[60px]" />
-          <Image src={fb} alt="fb" className="xl:w-[60px]" />
-          <Image src={ig} alt="ig" className="xl:w-[60px]" />
+          <Image src={ld} alt="ld" className="xl:w-[40px]" />
+          <Image src={fb} alt="fb" className="xl:w-[40px]" />
+          <Image src={ig} alt="ig" className="xl:w-[40px]" />
         </div>
       </div>
 
       {/* end share section */}
 
       {/* footer */}
-      <div className="relative flex xl:top-[46%]">
+      <div className="relative flex xl:top-[50%]">
         <Footer />
       </div>
       {/* footer */}
