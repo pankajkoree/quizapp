@@ -35,7 +35,7 @@ const scorePage = () => {
 
       {/* retry button */}
       <div className="relative flex xl:top-56">
-        <button className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg xl:text-3xl px-8 py-4 text-center mb-2">
+        <button className="text-white bg-gradient-to-br from-purple-400 to-pink-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg xl:text-3xl px-8 py-4 text-center mb-2">
           Retry
         </button>
       </div>
