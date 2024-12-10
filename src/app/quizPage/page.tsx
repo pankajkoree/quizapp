@@ -99,10 +99,9 @@ const QuizPage = () => {
     }
   };
 
-  // function for displaying score
-  const showScore = () => {
-    console.log(score);
-  };
+  useEffect(() => {
+    console.log(`Current theme: ${score}`);
+  }, [score]);
 
   return (
     <div className="dark:text-white relative flex flex-col w-full">
