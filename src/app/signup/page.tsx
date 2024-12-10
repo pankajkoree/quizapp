@@ -22,9 +22,10 @@ export default function Signup() {
       toast.success("Successfully signed up");
       router.push("/login");
       return response;
-    } catch (error) {
-      toast.error("Signup failed");
-    } finally {
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "An unknown error occurred";
+      toast.error(`Signup failed: ${errorMessage}`);
     }
   };
 
