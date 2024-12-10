@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     console.log(`Current theme: ${theme}`); // Example usage
   }, [theme]);
-  
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "default";
