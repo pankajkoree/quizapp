@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../public/file.png";
-import nextPage from "../../../public/next.png";
-import Footer from "../..//Footer";
+import logo from "../../../../public/file.png";
+import nextPage from "../../../../public/next.png";
+import Footer from "../../Footer";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
