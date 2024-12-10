@@ -30,6 +30,12 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+interface UserData {
+  id: string;
+  email: string;
+  name: string;
+}
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -40,7 +46,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }, []);
 
-  const login = (userData: any) => {
+  const login = (userData: UserData) => {
     if (!userData) {
       console.error("User data is undefined");
       return;

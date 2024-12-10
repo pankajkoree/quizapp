@@ -11,6 +11,11 @@ export default function Home() {
   const [theme, setTheme] = useState<string>("default");
 
   useEffect(() => {
+    console.log(`Current theme: ${theme}`); // Example usage
+  }, [theme]);
+  
+
+  useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "default";
     setTheme(savedTheme);
   }, []);
