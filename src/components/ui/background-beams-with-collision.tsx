@@ -126,6 +126,13 @@ const CollisionMechanism = React.forwardRef<
   const [beamKey, setBeamKey] = useState(0);
   const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
 
+  // Merge `ref` with `beamRef` using a utility function
+  useEffect(() => {
+    if (ref && typeof ref === "object" && beamRef.current) {
+      (ref as React.MutableRefObject<HTMLDivElement>).current = beamRef.current;
+    }
+  }, [ref]);
+
   useEffect(() => {
     const checkCollision = () => {
       if (
